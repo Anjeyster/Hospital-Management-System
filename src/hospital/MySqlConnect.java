@@ -1,0 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hospital;
+import java.sql.*;
+import javax.swing.*;
+/**
+ *
+ * @author anjet
+ */
+public class MySqlConnect {
+    Connection con = null;
+    public static Connection ConnectDB(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/hospital", "root", "");
+            System.out.println("Connected to the database");
+            return con;
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+    }
+}
